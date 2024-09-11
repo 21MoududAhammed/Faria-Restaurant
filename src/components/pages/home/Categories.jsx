@@ -7,9 +7,14 @@ import { Pagination } from "swiper/modules";
 import slider1 from "../../../assets/home/slide1.jpg";
 import slider2 from "../../../assets/home/slide2.jpg";
 import slider3 from "../../../assets/home/slide3.jpg";
+import SectionHeading from "../../shared/SectionHeading";
+const subHeading = "---From 11:00am to 10:00pm---";
+const heading = 'ORDER ONLINE';
 
 export default function Categories() {
   return (
+    <section className='mt-20'>
+        <SectionHeading subHeading={subHeading} heading={heading}/>
     <Swiper
       slidesPerView={2}
       spaceBetween={5}
@@ -34,7 +39,7 @@ export default function Categories() {
         },
       }}
       modules={[Pagination]}
-      className="mySwiper my-20 font-cinzel text-white"
+      className="mySwiper mt-14 mb-20 font-cinzel text-white"
     >
       <SwiperSlide>
         <div className="relative">
@@ -85,5 +90,6 @@ export default function Categories() {
         </div>
       </SwiperSlide>
     </Swiper>
+    </section>
   );
 }
