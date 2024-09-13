@@ -1,6 +1,7 @@
 import Banner from "./Banner";
 import Categories from "./Categories";
 import Details from "./Details";
+import PopularMenu from "./PopularMenu";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <Banner/>
         <Categories/>
         <Details/>
+        <PopularMenu/>
     </div>
   );
 }
