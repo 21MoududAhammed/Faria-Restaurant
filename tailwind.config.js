@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         cinzel: ['Cinzel', 'serif'],
+        raleway: ['Raleway', 'sans-serif'],
       },
     },
   },
