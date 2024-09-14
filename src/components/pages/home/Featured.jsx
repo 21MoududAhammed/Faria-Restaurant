@@ -2,7 +2,7 @@ import featuredImage from "../../../assets/home/featured.jpg";
 export default function Featured() {
   return (
     <section
-      className="relative bg-cover bg-center w-full h-fit"
+      className="relative bg-cover bg-center bg-fixed w-full h-fit"
       style={{ backgroundImage: `url(${featuredImage})` }}
     >
       {/* overlay with blur effect  */}
