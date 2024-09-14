@@ -1,6 +1,6 @@
 export default function Nav() {
   return (
-    <div className="navbar bg-black bg-opacity-35 fixed z-10 text-white max-w-screen-2xl mx-auto">
+    <div className="navbar bg-black bg-opacity-35 fixed z-40 text-white max-w-screen-2xl mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
