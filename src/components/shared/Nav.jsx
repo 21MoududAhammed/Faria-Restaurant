@@ -1,4 +1,6 @@
+import logo from '../../assets/logo.png';
 export default function Nav() {
+
   return (
     <div className="navbar bg-black bg-opacity-35 fixed z-40 text-white max-w-screen-2xl mx-auto">
       <div className="navbar-start">
@@ -42,7 +44,9 @@ export default function Nav() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-bold">Faria Restaurant</a>
+        <a className="btn btn-ghost text-2xl font-bold">
+          <img className='w-10 h-10' src={logo} alt="" />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
