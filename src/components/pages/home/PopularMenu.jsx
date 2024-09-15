@@ -1,4 +1,5 @@
 import MenuList from "../../shared/MenuList";
+import SecondaryBtn from "../../shared/SeconderyBtn";
 import SectionHeading from "../../shared/SectionHeading";
 import { useState, useEffect } from "react";
 
@@ -24,11 +25,7 @@ export default function PopularMenu() {
           <MenuList key={item._id} item={item} />
         ))}
       </div>
-      <div className="flex justify-center">
-        <div className="max-w-56 px-4 py-2 border-b-4 border-b-gray-900 rounded-xl">
-          <h1 className="text-xl uppercase ">View Full Menu</h1>
-        </div>
-      </div>
+      <SecondaryBtn content={'View Full Menu'}/>
     </section>
   );
 }
