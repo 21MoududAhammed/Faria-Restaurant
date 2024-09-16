@@ -11,6 +11,7 @@ import PizzaList from "./PizzaList";
 import SaladList from "./SaladList";
 import SoupsList from "./SoupsList";
 import useLoadProducts from "../../../hooks/useLoadProducts";
+import useHelmetTitle from "../../../hooks/useHelmetTitle";
 
 export default function Menu() {
   const { products } = useLoadProducts();
@@ -23,13 +24,13 @@ export default function Menu() {
   const pizzaItems = products.filter((product) => product.category === "pizza");
   const saladItems = products.filter((product) => product.category === "salad");
   const soupItems = products.filter((product) => product.category === "soup");
+  // use the custom hook to set the title
+  const helmet = useHelmetTitle(`Faria Restaurant | Menu`);
 
   return (
     <div>
-      <Helmet>
-        <title>Faria Restaurant | Menu</title>
-        <link rel="canonical" href="https://www.tacobell.com/" />
-      </Helmet>
+      {/* set title  */}
+      {helmet}
       <CommonBanner
         bgImage={bgMenuBanner}
         title={`OUR MENU`}

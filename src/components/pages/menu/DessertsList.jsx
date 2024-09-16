@@ -1,6 +1,7 @@
 import MenuList from "../../shared/MenuList";
 import SecondaryBtn from "../../shared/SeconderyBtn";
 import { useEffect, useState } from "react";
+import {Link} from 'react-router-dom';
 
 export default function DessertsList({ products }) {
   return (
@@ -10,7 +11,9 @@ export default function DessertsList({ products }) {
           <MenuList key={item._id} item={item} />
         ))}
       </div>
+      <Link to='/shop/dessert'>
       <SecondaryBtn content={"Order Your Favorite Food"} />
+      </Link>
     </section>
   );
 }

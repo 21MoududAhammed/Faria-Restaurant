@@ -59,7 +59,7 @@ export default function Nav() {
             <Link to='/menu'>Menu</Link>
           </li>
           <li>
-            <Link to='/shop'>Shop</Link>
+            <Link to='/shop/salad'>Shop</Link>
           </li>
         </ul>
       </div>

@@ -5,7 +5,15 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useLoadProducts from "../../../hooks/useLoadProducts";
 import ShopTab from "./ShopTab";
+import useHelmetTitle from "../../../hooks/useHelmetTitle";
+import { useState } from "react";
+import { useParams, NavLink } from "react-router-dom";
+
 export default function Shop() {
+  const { category } = useParams();
+  const categories = ["salad", "pizza", "soup", "dessert", "drink"];
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
   const { products } = useLoadProducts();
 
   const dessertItems = products.filter(
@@ -18,33 +26,38 @@ export default function Shop() {
     (product) => product.category === "drinks"
   );
 
+  //   to set the title
+  const helmet = useHelmetTitle(`Faria Restaurant | Shop`);
+
   return (
     <div>
-      <Helmet>
-        <title>Faria Restaurant | Shop</title>
-      </Helmet>
+      {/* set title  */}
+      {helmet}
+      {/* hero sections  */}
       <CommonBanner
         bgImage={bannerImg1}
         title={"Our Shop"}
         description={" Would you like to try a dish?"}
       />
-      <Tabs>
+      {/* categories tabs  */}
+      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList className="flex justify-center space-x-2 sm:space-x-3 md:space-x-4">
-          <Tab className="uppercase text-xs sm:text-xl md:text-xl font-bold cursor-pointer hover:text-myYellow border-b-4 border-white hover:border-myYellow">
-            Salad
-          </Tab>
-          <Tab className="uppercase text-xs sm:text-xl md:text-xl font-bold cursor-pointer hover:text-myYellow border-b-4 border-white hover:border-myYellow">
-            Pizza
-          </Tab>
-          <Tab className="uppercase text-xs sm:text-xl md:text-xl font-bold cursor-pointer hover:text-myYellow border-b-4 border-white hover:border-myYellow">
-            Soups
-          </Tab>
-          <Tab className="uppercase text-xs sm:text-xl md:text-xl font-bold cursor-pointer hover:text-myYellow border-b-4 border-white hover:border-myYellow">
-            Desserts
-          </Tab>
-          <Tab className="uppercase text-xs sm:text-xl md:text-xl font-bold cursor-pointer hover:text-myYellow border-b-4 border-white hover:border-myYellow">
-            Drinks
-          </Tab>
+          {categories.map((cat) => {
+            return (
+              <Tab key={cat} className="border-none">
+                <NavLink
+                  to={`/shop/${cat}`}
+                  className={({ isActive }) =>
+                    `uppercase text-xs sm:text-xl md:text-xl font-bold cursor-pointer  border-b-4 border-white  ${
+                      isActive ? "text-myYellow border-myYellow" : ""
+                    }`
+                  }
+                >
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </NavLink>
+              </Tab>
+            );
+          })}
         </TabList>
 
         <TabPanel>

@@ -1,18 +1,20 @@
 export default function ItemCard({ item }) {
   return (
-    <div className="flex flex-col items-center justify-center text-center bg-gray-200 rounded">
-      <img className="w-full h-full" src={item?.image} alt="" />
-
-      <div className="py-8 px-10">
-        <div className="space-y-4">
-          <h4 className="text-2xl font-semibold">{item?.name}</h4>
-          <p className="text-base">{item?.recipe}</p>
-        </div>
-        <div className="mt-8">
-          <button className="uppercase text-xl font-medium text text-myYellow px-7 py-5 bg-gray-300 rounded-xl border-b-2 border-yellow-500 hover:bg-[#1F2937]">
+    <div className="card bg-base-100 max-w-96 shadow-xl relative">
+      <figure>
+        <img src={item?.image} alt="product" />
+      </figure>
+      <div className="card-body text-center">
+        <h2 className="text-2xl text-center">{item?.name}</h2>
+        <p>{item?.recipe}</p>
+        <div className="card-actions justify-center">
+          <button className="uppercase text-lg font-medium text text-myYellow px-7 py-3 bg-gray-300 rounded-xl border-b-2 border-yellow-500 hover:bg-[#1F2937] mt-6">
             add to cart
           </button>
         </div>
+      </div>
+      <div className="bg-gray-700 px-4 py-2 text-white  rounded-xl absolute right-0">
+        <p className="text-xs">${item?.price}</p>
       </div>
     </div>
   );
