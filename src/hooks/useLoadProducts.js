@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-export default function useLoadProductsByCategory({ url, category }) {
-  console.log(url);
+export default function useLoadProducts() {
+
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -11,12 +11,9 @@ export default function useLoadProductsByCategory({ url, category }) {
       try {
         setError("");
         setIsLoading(true);
-        const res = await fetch(url);
+        const res = await fetch("/menu.json");
         const data = await res.json();
-        const nextData = data.filter(
-          (product) => product?.category === category
-        );
-        setProducts(nextData);
+        setProducts(data);
       } catch (err) {
         console.log(err);
         setError(err?.message);
@@ -25,7 +22,7 @@ export default function useLoadProductsByCategory({ url, category }) {
       }
     };
     fetchProducts();
-  }, [url, category]);
+  }, []);
 
   return { products, error, isLoading };
 }

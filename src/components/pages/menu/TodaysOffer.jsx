@@ -1,20 +1,8 @@
 import MenuList from "../../shared/MenuList";
 import SecondaryBtn from "../../shared/SeconderyBtn";
 import SectionHeading from "../../shared/SectionHeading";
-import { useEffect, useState } from "react";
 
-export default function TodaysOffer() {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await fetch("../../../../menu.json");
-      const data = await res.json();
-      const items = data.filter((item) => item.category === "salad");
-
-      setProducts(items);
-    };
-    fetchProducts();
-  }, []);
+export default function TodaysOffer({ products }) {
   return (
     <section className=" mb-10 sm:mb-16 md:mb-20">
       <SectionHeading
