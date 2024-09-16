@@ -1,4 +1,4 @@
-import ProductCard from "../../shared/ProductCard";
+import ProductCard from "./ProductCard";
 import SectionHeading from "../../shared/SectionHeading";
 
 export default function RecommendedItems() {

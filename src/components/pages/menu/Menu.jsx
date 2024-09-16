@@ -14,9 +14,11 @@ import useLoadProducts from "../../../hooks/useLoadProducts";
 
 export default function Menu() {
   const { products } = useLoadProducts();
-  const offerItems = products.filter((product) => product.category === "popular");
+  const offerItems = products.filter(
+    (product) => product.category === "offered"
+  );
   const dessertItems = products.filter(
-    (product) => product.category === "desserts"
+    (product) => product.category === "dessert"
   );
   const pizzaItems = products.filter((product) => product.category === "pizza");
   const saladItems = products.filter((product) => product.category === "salad");
@@ -33,31 +35,31 @@ export default function Menu() {
         title={`OUR MENU`}
         description={`Would you like to try a dish?`}
       />
-      <TodaysOffer products={offerItems}/>
+      <TodaysOffer products={offerItems} />
       <CommonBanner
         bgImage={bgDessert}
         title={`Desserts`}
         description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt veritatis expedita consequatur optio velit tenetur laboriosam quae, ipsam autem!`}
       />
-      <DessertsList products={dessertItems}/>
+      <DessertsList products={dessertItems} />
       <CommonBanner
         bgImage={bgPizza}
         title={`Pizza`}
         description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt veritatis expedita consequatur optio velit tenetur laboriosam quae, ipsam autem!`}
       />
-      <PizzaList products={pizzaItems}/>
+      <PizzaList products={pizzaItems} />
       <CommonBanner
         bgImage={bgSalads}
         title={`Salads`}
         description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt veritatis expedita consequatur optio velit tenetur laboriosam quae, ipsam autem!`}
       />
-      <SaladList products={saladItems}/>
+      <SaladList products={saladItems} />
       <CommonBanner
         bgImage={bgSoups}
         title={`Soups`}
         description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt veritatis expedita consequatur optio velit tenetur laboriosam quae, ipsam autem!`}
       />
-      <SoupsList products={soupItems}/>
+      <SoupsList products={soupItems} />
     </div>
   );
 }
