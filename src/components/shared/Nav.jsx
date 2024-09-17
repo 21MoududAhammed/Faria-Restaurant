@@ -1,8 +1,7 @@
-import logo from '../../assets/logo.png';
-import {Link } from 'react-router-dom';
+import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
-
   return (
     <div className="navbar bg-black bg-opacity-35 fixed z-40 text-white max-w-screen-2xl mx-auto">
       <div className="navbar-start">
@@ -47,19 +46,22 @@ export default function Nav() {
           </ul>
         </div>
         <a className="btn btn-ghost text-2xl font-bold">
-          <img className='w-10 h-10' src={logo} alt="" />
+          <img className="w-10 h-10" src={logo} alt="" />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to='/menu'>Menu</Link>
+            <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to='/shop/salad'>Shop</Link>
+            <Link to="/shop/salad">Shop</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </div>

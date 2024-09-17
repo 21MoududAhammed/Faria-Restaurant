@@ -1,4 +1,3 @@
-import ProductCard from "./ProductCard";
 import SectionHeading from "../../shared/SectionHeading";
 import useLoadProducts from "../../../hooks/useLoadProducts";
 import ItemCard from "../../shared/ItemCard";
