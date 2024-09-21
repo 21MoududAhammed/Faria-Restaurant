@@ -63,10 +63,11 @@ export default function Nav() {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+         
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn ">Button</a>
+        <a className="btn px-3 ">LogIn</a>
       </div>
     </div>
   );

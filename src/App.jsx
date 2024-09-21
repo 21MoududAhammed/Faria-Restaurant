@@ -4,6 +4,7 @@ import Home from "./components/pages/home/Home";
 import Menu from "./components/pages/menu/Menu";
 import Shop from "./components/pages/shop/Shop";
 import Contact from "./components/pages/contact/contact";
+
 export default function App() {
   return (
     <div className="font-inter max-w-screen-2xl mx-auto">
