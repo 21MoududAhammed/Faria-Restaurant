@@ -1,74 +1,122 @@
-import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { FaCartArrowDown } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { IoMenu } from "react-icons/io5";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="navbar bg-black bg-opacity-35 fixed z-40 text-white max-w-screen-2xl mx-auto">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+    <>
+      <div className="flex justify-between bg-gray-500  text-white w-full max-w-screen-2xl   items-center px-5 shadow h-16">
+        <button
+          className="block md:hidden text-3xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <IoMenu />
+        </button>
+        {/* logo / brand name  */}
+        <div>
+          <p className="text-2xl font-bold">{`Faria's Restaurant`}</p>
+        </div>
+        {/* others  */}
+        <div className=" hidden md:flex items-center justify-center gap-5">
+          {/* pages  */}
+          <ul className="flex justify-center gap-8">
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/"
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/menu"
+              >
+                Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/shop/salad"
+              >
+                Shop
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/contact"
+              >
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+
+          <h2 className="text-2xl">
+            <FaCartArrowDown />
+          </h2>
+          <div className="flex items-center gap-2">
+            <p>Sign Out</p>
+            <h2 className="text-2xl">
+              <CgProfile />
+            </h2>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <Link>Home</Link>
+        </div>
+        {/* for mobile device  */}
+        <div className=" md:hidden flex justify-center items-center gap-3">
+          <h2 className="text-2xl">
+            <FaCartArrowDown />
+          </h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-2xl">
+              <CgProfile />
+            </h2>
+          </div>
+        </div>
+      </div>
+      {isOpen && (
+        <div className=" md:hidden fixed z-40 w-full  flex justify-center items-center font-semiBold ">
+          <ul className="w-full bg-gray-500 text-white font-semibold text-center py-3">
+          <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/menu"
+              >
+                Menu
+              </NavLink>
             </li>
             <li>
-              <a>Item 3</a>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/shop/salad"
+              >
+                Shop
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-black" : "")}
+                to="/contact"
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-bold">
-          <img className="w-10 h-10" src={logo} alt="" />
-        </a>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/menu">Menu</Link>
-          </li>
-          <li>
-            <Link to="/shop/salad">Shop</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-         
-        </ul>
-      </div>
-      <div className="navbar-end">
-        <a className="btn px-3 ">LogIn</a>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

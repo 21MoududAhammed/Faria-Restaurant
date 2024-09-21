@@ -10,6 +10,7 @@ export default {
       },
       colors: {
         myYellow: "#BB8506",
+        myTomato: "#FF574A",
       },
     },
   },
