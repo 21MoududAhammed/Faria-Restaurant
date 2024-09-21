@@ -3,7 +3,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./components/pages/home/Home";
 import Menu from "./components/pages/menu/Menu";
 import Shop from "./components/pages/shop/Shop";
-import Contact from "./components/pages/contact/contact";
+import Contact from "./components/pages/contact/Contact.jsx";
 
 export default function App() {
   return (
