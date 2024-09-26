@@ -3,7 +3,7 @@ import bgImg from "../../assets/others/authentication.png";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
-export default function Login() {
+export default function SignUp() {
   return (
     <div
       style={{ backgroundImage: `url(${bgImg})` }}
@@ -13,13 +13,22 @@ export default function Login() {
         style={{ backgroundImage: `url(${bgImg})` }}
         className="grid grid-cols-1 md:grid-cols-2 bg-cover  py-10 max-w-screen-xl mx-auto shadow-lg"
       >
-        <div className="my-auto">
-          <img className="hidden md:block" src={loginImg} alt="" />
-        </div>
-
         <div>
           <form className="space-y-4 md:space-y-8  px-4 sm:px-10 mb-5 ">
-            <h1 className="text-4xl font-bold text-center ">Login</h1>
+            <h1 className="text-4xl font-bold text-center ">Sign Up</h1>
+            <div className="md:space-y-2 ">
+              <label className="font-semibold text-xl" htmlFor="email">
+                Name
+              </label>{" "}
+              <br />
+              <input
+                className="border-2 rounded-md px-3 py-2 w-full "
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Type email"
+              />
+            </div>
             <div className="md:space-y-2 ">
               <label className="font-semibold text-xl" htmlFor="email">
                 Email
@@ -27,7 +36,7 @@ export default function Login() {
               <br />
               <input
                 className="border-2 rounded-md px-3 py-2 w-full "
-                type="text"
+                type="email"
                 name="email"
                 id="email"
                 placeholder="Type email"
@@ -44,27 +53,7 @@ export default function Login() {
                 id="password"
               />
             </div>
-            <div>
-              {/* captcha  */}
-              <input
-                className="border-2 rounded-md px-3 py-2 w-full"
-                type="text"
-                name="captcha"
-                id="captcha"
-              />
-              <p className="font-semibold text-base text-blue-700">
-                Reload Captcha
-              </p>
-            </div>
-            <div className="space-y-2">
-              <input
-                className="border-2 rounded-md px-3 py-2 w-full"
-                type="text"
-                name="captcha"
-                id="captcha"
-                placeholder="Type here, captcha"
-              />
-            </div>
+
             <button
               className="text-white font-bold py-6 bg-[#D1A054] w-full rounded-md"
               type="submit"
@@ -73,10 +62,10 @@ export default function Login() {
             </button>
           </form>
           <p className="text-[#D1A054] text-center mb-4">
-            New here?{" "}
-            <span className="font-semibold">Create a New Account</span>
+            Already Registered?{" "}
+            <span className="font-semibold">go to login</span>
           </p>
-          <p className="text-center text-xl">Or Sign in with</p>
+          <p className="text-center text-xl">Or Sign up with</p>
           <div className="flex justify-center items-center gap-5 mt-3 text-4xl ">
             <p>
               <RiFacebookCircleLine />
@@ -88,6 +77,9 @@ export default function Login() {
               <FaGithub />
             </p>
           </div>
+        </div>
+        <div className="my-auto">
+          <img className="hidden md:block" src={loginImg} alt="" />
         </div>
       </div>
     </div>
