@@ -4,6 +4,7 @@ import Home from "./components/pages/home/Home";
 import Menu from "./components/pages/menu/Menu";
 import Shop from "./components/pages/shop/Shop";
 import Contact from "./components/pages/contact/Contact.jsx";
+import Login from "./components/auth/Login";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/shop/:category" element={<Shop />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login/>} />
         </Route>
       </Routes>
     </div>

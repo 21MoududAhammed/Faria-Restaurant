@@ -14,7 +14,7 @@ export default function ContactForm() {
           <div>
             <label
               className="text-gray-700 dark:text-gray-200 font-bold"
-              for="name"
+              htmlFor="name"
             >
               Name*
             </label>
@@ -28,7 +28,7 @@ export default function ContactForm() {
           <div>
             <label
               className="text-gray-700 dark:text-gray-200 font-bold"
-              for="email"
+              htmlFor="email"
             >
               Email*
             </label>
@@ -43,7 +43,7 @@ export default function ContactForm() {
         <div>
           <label
             className="text-gray-700 dark:text-gray-200 font-bold"
-            for="name"
+            htmlFor="name"
           >
             Phone*
           </label>
@@ -57,7 +57,7 @@ export default function ContactForm() {
         <div>
           <label
             className="text-gray-700 dark:text-gray-200 font-bold"
-            for="name"
+            htmlFor="name"
           >
             Message*
           </label>
