@@ -2,8 +2,43 @@ import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+// captcha
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  LoadCanvasTemplateNoReload,
+  validateCaptcha,
+} from "react-simple-captcha";
 
 export default function Login() {
+  const initialUserData = {
+    email: "",
+    password: "",
+    captcha: "",
+  };
+  const [user, setUser] = useState(initialUserData);
+  // on submit
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    if (validateCaptcha(user.captcha) === true) {
+      console.log(user);
+      setUser({
+        email: "",
+        password: "",
+        captcha: "",
+      });
+      toast("Captcha validation done!");
+    } else {
+      toast("Captcha validation wrong!");
+    }
+  };
+  // set the number characters of captcha
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
   return (
     <div
       style={{ backgroundImage: `url(${bgImg})` }}
@@ -18,7 +53,10 @@ export default function Login() {
         </div>
 
         <div>
-          <form className="space-y-4 md:space-y-8  px-4 sm:px-10 mb-5 ">
+          <form
+            onSubmit={onSubmit}
+            className="space-y-4 md:space-y-8  px-4 sm:px-10 mb-5 "
+          >
             <h1 className="text-4xl font-bold text-center ">Login</h1>
             <div className="md:space-y-2 ">
               <label className="font-semibold text-xl" htmlFor="email">
@@ -31,6 +69,8 @@ export default function Login() {
                 name="email"
                 id="email"
                 placeholder="Type email"
+                value={user.email}
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
               />
             </div>
             <div className="md:space-y-2">
@@ -39,22 +79,18 @@ export default function Login() {
               </label>
               <input
                 className="border-2 rounded-md px-3 py-2 w-full"
-                type="text"
+                type="password"
                 name="password"
                 id="password"
+                placeholder="Enter password"
+                value={user.password}
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
             </div>
             <div>
               {/* captcha  */}
-              <input
-                className="border-2 rounded-md px-3 py-2 w-full"
-                type="text"
-                name="captcha"
-                id="captcha"
-              />
-              <p className="font-semibold text-base text-blue-700">
-                Reload Captcha
-              </p>
+
+              <LoadCanvasTemplate />
             </div>
             <div className="space-y-2">
               <input
@@ -63,6 +99,8 @@ export default function Login() {
                 name="captcha"
                 id="captcha"
                 placeholder="Type here, captcha"
+                value={user.captcha}
+                onChange={(e) => setUser({ ...user, captcha: e.target.value })}
               />
             </div>
             <button
